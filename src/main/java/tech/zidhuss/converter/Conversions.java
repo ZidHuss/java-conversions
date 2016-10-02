@@ -25,4 +25,12 @@ public class Conversions {
     public static double kToF(double k) {
         return cToF(kToC(k));
     }
+
+    public static double pToKg(double p) {
+        return p / 2.2;
+    }
+
+    public static double kgToP(double kg) {
+        return kg * 2.2;
+    }
 }
