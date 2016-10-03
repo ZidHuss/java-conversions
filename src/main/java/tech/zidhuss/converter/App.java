@@ -60,9 +60,12 @@ public class App extends Application {
                 if (!newValue.matches("^-?\\d*\\.?\\d*"))
                     textFieldCelcius.setText(oldValue);
                 else {
-                    double parsed = Double.parseDouble(newValue);
-                    textFieldFahrenheit.setText(String.format("%.2f", Conversions.cToF(parsed)));
-                    textFieldKelvin.setText(String.format("%.2f", Conversions.cToK(parsed)));
+                    try {
+                        // Catch when field is empty
+                        double parsed = Double.parseDouble(newValue);
+                        textFieldFahrenheit.setText(String.format("%.2f", Conversions.cToF(parsed)));
+                        textFieldKelvin.setText(String.format("%.2f", Conversions.cToK(parsed)));
+                    } catch (NumberFormatException e) {}
                 }
         });
         textFieldFahrenheit.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -70,9 +73,12 @@ public class App extends Application {
                 if (!newValue.matches("^-?\\d*\\.?\\d*"))
                     textFieldFahrenheit.setText(oldValue);
                 else {
-                    double parsed = Double.parseDouble(newValue);
-                    textFieldCelcius.setText(String.format("%.2f", Conversions.fToC(parsed)));
-                    textFieldKelvin.setText(String.format("%.2f", Conversions.fToK(parsed)));
+                    try {
+                        // Catch when field is empty
+                        double parsed = Double.parseDouble(newValue);
+                        textFieldCelcius.setText(String.format("%.2f", Conversions.fToC(parsed)));
+                        textFieldKelvin.setText(String.format("%.2f", Conversions.fToK(parsed)));
+                    } catch (NumberFormatException e) {}
                 }
         });
         textFieldKelvin.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -80,9 +86,12 @@ public class App extends Application {
                 if (!newValue.matches("^-?\\d*\\.?\\d*"))
                     textFieldKelvin.setText(oldValue);
                 else {
-                    double parsed = Double.parseDouble(newValue);
-                    textFieldCelcius.setText(String.format("%.2f", Conversions.kToC(parsed)));
-                    textFieldFahrenheit.setText(String.format("%.2f", Conversions.kToF(parsed)));
+                    try {
+                        // Catch when field is empty
+                        double parsed = Double.parseDouble(newValue);
+                        textFieldCelcius.setText(String.format("%.2f", Conversions.kToC(parsed)));
+                        textFieldFahrenheit.setText(String.format("%.2f", Conversions.kToF(parsed)));
+                    } catch (NumberFormatException e) {}
                 }
         });
         return grid;
@@ -112,8 +121,11 @@ public class App extends Application {
                 if (!newValue.matches("^-?\\d*\\.?\\d*"))
                     textFieldKilo.setText(oldValue);
                 else {
-                    double parsed = Double.parseDouble(newValue);
-                    textFieldPound.setText(String.format("%.2f", Conversions.kgToP(parsed)));
+                    try {
+                        // Catch when field is empty
+                        double parsed = Double.parseDouble(newValue);
+                        textFieldPound.setText(String.format("%.2f", Conversions.kgToP(parsed)));
+                    } catch(NumberFormatException e) {}
                 }
         });
         textFieldPound.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -121,8 +133,11 @@ public class App extends Application {
                 if (!newValue.matches("^-?\\d*\\.?\\d*"))
                     textFieldPound.setText(oldValue);
                 else {
-                    double parsed = Double.parseDouble(newValue);
-                    textFieldKilo.setText(String.format("%.2f", Conversions.pToKg(parsed)));
+                    try {
+                        // Catch when field is empty
+                        double parsed = Double.parseDouble(newValue);
+                        textFieldKilo.setText(String.format("%.2f", Conversions.pToKg(parsed)));
+                    } catch(NumberFormatException e) {}
                 }
         });
         return grid;
